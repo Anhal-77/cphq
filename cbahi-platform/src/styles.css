@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-base: #080e1a;
+  --bg-card: #0d1628;
+  --bg-elevated: #132035;
+  --bg-hover: #1a2d47;
+  --border: #1e3354;
+  --border-bright: #2a4a6e;
+  --accent: #00b4d8;
+  --accent-glow: rgba(0, 180, 216, 0.15);
+  --accent-2: #0077b6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.15);
+  --text-primary: #e8f4fd;
+  --text-secondary: #7a9cc2;
+  --text-muted: #3d5a7a;
+  --esr-color: #ff6b6b;
+  --major-color: #ffd166;
+  --minor-color: #06d6a0;
+  --font: 'IBM Plex Sans Arabic', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  direction: rtl;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px var(--accent-glow); }
+  50%       { box-shadow: 0 0 25px rgba(0, 180, 216, 0.35); }
+}
+
+@keyframes criticalPulse {
+  0%, 100% {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(239, 68, 68, 0.7);
+  }
+}
+
+/* Utility */
+.animate-fade { animation: fadeIn 0.4s ease both; }
+.animate-glow { animation: glow 3s ease-in-out infinite; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-critical { animation: criticalPulse 2s ease-in-out infinite; }
